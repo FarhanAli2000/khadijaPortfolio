@@ -210,10 +210,11 @@ main {
   background-clip: text;
   color: transparent;
   font-size: clamp(3.1rem, 7vw, 6.8rem);
-  line-height: 0.9;
-  margin: 0;
+  line-height: 1.06;
+  margin: 0 0 -0.08em;
   max-width: 680px;
   overflow-wrap: anywhere;
+  padding-bottom: 0.08em;
 }
 
 .hero-copy p {
@@ -887,30 +888,73 @@ main {
 @media (max-width: 680px) {
   .navbar {
     border-radius: 8px;
+    gap: 12px;
+    justify-content: space-between;
+    left: 10px;
     top: 10px;
     width: calc(100% - 20px);
   }
 
   .brand span {
+    display: inline;
+    font-size: 1rem;
+  }
+
+  .brand img {
+    height: 34px;
+    width: 34px;
+  }
+
+  .nav-links {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(22, 32, 48, 0.1);
+    border-radius: 999px;
+    bottom: 12px;
+    box-shadow: 0 16px 48px rgba(22, 32, 48, 0.16);
+    display: flex;
+    gap: 2px;
+    left: 10px;
+    max-width: calc(100vw - 20px);
+    overflow-x: auto;
+    padding: 8px;
+    position: fixed;
+    right: 10px;
+    scrollbar-width: none;
+    z-index: 21;
+  }
+
+  .nav-links::-webkit-scrollbar {
     display: none;
   }
 
+  .nav-links a {
+    flex: 0 0 auto;
+    font-size: 0.78rem;
+    min-height: 34px;
+    padding: 0 12px;
+  }
+
   .nav-cta {
-    min-height: 38px;
-    padding: 0 14px;
+    font-size: 0.8rem;
+    min-height: 36px;
+    padding: 0 12px;
   }
 
   .animated-section {
-    padding: 88px 16px;
+    padding: 88px 16px 104px;
   }
 
   .hero-section {
     min-height: auto;
+    padding-bottom: 124px;
     padding-top: 112px;
   }
 
   .hero-copy h1 {
-    font-size: 3.4rem;
+    font-size: clamp(3.15rem, 18vw, 5rem);
+    line-height: 1.04;
+    margin-bottom: -0.06em;
+    padding-bottom: 0.1em;
   }
 
   .hero-copy p {
