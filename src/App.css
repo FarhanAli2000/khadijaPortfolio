@@ -270,11 +270,13 @@ main {
 .typewriter-cursor {
   animation: cursorBlink 760ms steps(2, start) infinite;
   background: none;
-  color: var(--coral);
+  color: var(--teal-deep);
   display: inline-block;
   font-weight: 800;
-  margin-left: 0.04em;
-  -webkit-text-fill-color: var(--coral);
+  margin-left: 0.03em;
+  transform: scaleY(0.86);
+  transform-origin: center;
+  -webkit-text-fill-color: var(--teal-deep);
 }
 
 .hero-copy p {
