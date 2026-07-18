@@ -27,6 +27,9 @@ function Navbar() {
             {item.label}
           </a>
         ))}
+        <a className="mobile-cv-link" href={profile.cv} target="_blank" rel="noreferrer" onClick={closeMenu}>
+          View CV
+        </a>
       </div>
 
       <a className="nav-cta" href={profile.cv} target="_blank" rel="noreferrer">

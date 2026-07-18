@@ -165,6 +165,10 @@ img {
   padding: 0 14px;
 }
 
+.mobile-cv-link {
+  display: none;
+}
+
 .nav-links a:hover {
   background: rgba(22, 143, 159, 0.1);
   color: var(--ink);
@@ -918,6 +922,13 @@ main {
     padding: 0 14px;
   }
 
+  .nav-links .mobile-cv-link {
+    background: var(--ink);
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+  }
+
   .menu-toggle {
     display: inline-flex;
   }
@@ -983,9 +994,7 @@ main {
   }
 
   .nav-cta {
-    font-size: 0.8rem;
-    min-height: 36px;
-    padding: 0 12px;
+    display: none;
   }
 
   .animated-section {
