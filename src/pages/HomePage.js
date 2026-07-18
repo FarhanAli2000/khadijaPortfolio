@@ -4,6 +4,7 @@ import { profile, stats } from '../data/portfolioData';
 
 function HomePage() {
   const [typedName, setTypedName] = useState('');
+  const [activePortrait, setActivePortrait] = useState(0);
 
   useEffect(() => {
     let index = 0;
@@ -15,6 +16,14 @@ function HomePage() {
         window.clearInterval(timer);
       }
     }, 115);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActivePortrait((current) => (current + 1) % profile.portraits.length);
+    }, 3600);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -44,7 +53,16 @@ function HomePage() {
       <div className="hero-visual" aria-label="Designer portrait and selected stats">
         <div className="orbit-ring ring-one" />
         <div className="orbit-ring ring-two" />
-        <img className="hero-portrait" src={profile.portrait} alt="Khadija Sajid portrait artwork" />
+        <div className="portrait-slider">
+          {profile.portraits.map((portrait, index) => (
+            <img
+              key={portrait}
+              className={`hero-portrait ${activePortrait === index ? 'is-active' : ''}`}
+              src={portrait}
+              alt={index === 0 ? 'Khadija Sajid profile portrait' : 'Khadija Sajid alternate portrait'}
+            />
+          ))}
+        </div>
         <div className="floating-card card-top">
           <span>Current focus</span>
           <strong>Brand identity</strong>

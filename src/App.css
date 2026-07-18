@@ -322,16 +322,40 @@ main {
   z-index: -3;
 }
 
-.hero-portrait {
+.portrait-slider {
   border: 10px solid #fff;
   border-radius: 8px;
   box-shadow: var(--shadow);
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  overflow: hidden;
   position: relative;
   width: 100%;
   z-index: 2;
+}
+
+.hero-portrait {
+  animation: portraitKenBurns 7.2s ease-in-out infinite;
+  border: 0;
+  border-radius: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  transition: opacity 900ms ease, transform 1200ms ease, filter 900ms ease;
+  width: 100%;
+}
+
+.hero-portrait.is-active {
+  opacity: 1;
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+.hero-portrait:not(.is-active) {
+  filter: saturate(0.92);
+  transform: scale(1.08) translateX(10px);
 }
 
 .orbit-ring {
@@ -857,6 +881,16 @@ main {
   }
   50% {
     transform: translateY(-16px) rotate(1deg);
+  }
+}
+
+@keyframes portraitKenBurns {
+  0%,
+  100% {
+    object-position: center 42%;
+  }
+  50% {
+    object-position: center 54%;
   }
 }
 

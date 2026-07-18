@@ -12,6 +12,10 @@ export const profile = {
   intro:
     'Creative and detail-oriented graphic designer crafting impactful visuals that inspire, connect, and help brands show up with confidence.',
   portrait: `${imageBase}/profile-picture.jpeg`,
+  portraits: [
+    `${imageBase}/profile-picture.jpeg`,
+    `${imageBase}/WhatsApp Image 2026-07-18 at 12.36.29 PM.jpeg`,
+  ],
   logo: `${imageBase}/profile-picture.jpeg`,
   cv: `${imageBase}/Khadija_Sajid_CV (2).pdf`,
 };
