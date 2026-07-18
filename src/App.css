@@ -263,6 +263,20 @@ main {
   padding-bottom: 0.08em;
 }
 
+.typewriter-title {
+  min-height: 2.04em;
+}
+
+.typewriter-cursor {
+  animation: cursorBlink 760ms steps(2, start) infinite;
+  background: none;
+  color: var(--coral);
+  display: inline-block;
+  font-weight: 800;
+  margin-left: 0.04em;
+  -webkit-text-fill-color: var(--coral);
+}
+
 .hero-copy p {
   color: var(--ink-soft);
   font-size: 1.18rem;
@@ -878,6 +892,17 @@ main {
   }
   50% {
     box-shadow: 0 0 0 12px rgba(22, 143, 159, 0);
+  }
+}
+
+@keyframes cursorBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
   }
 }
 

@@ -1,12 +1,34 @@
+import { useEffect, useState } from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import { profile, stats } from '../data/portfolioData';
 
 function HomePage() {
+  const [typedName, setTypedName] = useState('');
+
+  useEffect(() => {
+    let index = 0;
+    const timer = window.setInterval(() => {
+      index += 1;
+      setTypedName(profile.name.slice(0, index));
+
+      if (index >= profile.name.length) {
+        window.clearInterval(timer);
+      }
+    }, 115);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <AnimatedSection id="home" className="hero-section">
       <div className="hero-copy">
         <span className="eyebrow">Graphic Designer - Branding & Marketing</span>
-        <h1>{profile.name}</h1>
+        <h1 className="typewriter-title" aria-label={profile.name}>
+          {typedName}
+          <span className="typewriter-cursor" aria-hidden="true">
+            |
+          </span>
+        </h1>
         <p>{profile.intro}</p>
 
         <div className="hero-actions">
