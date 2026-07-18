@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { profile } from '../data/portfolioData';
 
 const navItems = [
@@ -9,16 +10,20 @@ const navItems = [
 ];
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <nav className="navbar" aria-label="Primary navigation">
-      <a className="brand" href="#home" aria-label="Khadija Sajid portfolio home">
+    <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`} aria-label="Primary navigation">
+      <a className="brand" href="#home" aria-label="Khadija Sajid portfolio home" onClick={closeMenu}>
         <img src={profile.logo} alt="" />
         <span>Khadija</span>
       </a>
 
       <div className="nav-links">
         {navItems.map((item) => (
-          <a key={item.href} href={item.href}>
+          <a key={item.href} href={item.href} onClick={closeMenu}>
             {item.label}
           </a>
         ))}
@@ -27,6 +32,18 @@ function Navbar() {
       <a className="nav-cta" href={profile.cv} target="_blank" rel="noreferrer">
         View CV
       </a>
+
+      <button
+        className="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded={isMenuOpen}
+        onClick={() => setIsMenuOpen((current) => !current)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
     </nav>
   );
 }
