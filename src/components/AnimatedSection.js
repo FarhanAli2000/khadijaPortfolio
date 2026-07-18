@@ -11,6 +11,15 @@ function AnimatedSection({ id, className = '', children }) {
       return undefined;
     }
 
+    if (!('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return undefined;
+    }
+
+    if (window.location.hash === `#${id}`) {
+      setIsVisible(true);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -18,13 +27,13 @@ function AnimatedSection({ id, className = '', children }) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.18 }
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
     );
 
     observer.observe(section);
 
     return () => observer.disconnect();
-  }, []);
+  }, [id]);
 
   return (
     <section

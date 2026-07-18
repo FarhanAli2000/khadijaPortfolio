@@ -1059,7 +1059,9 @@ main {
   }
 
   .animated-section {
+    opacity: 1;
     padding: 88px 16px;
+    transform: none;
   }
 
   .hero-section {
